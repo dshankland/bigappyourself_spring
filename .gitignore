@@ -31,4 +31,7 @@ build/
 .vscode/
 
 ### Email stuff ###
-Email_security.txt
+SendGridKey.txt
+
+### Twilio API key stuff ###
+TwilioKey.txt

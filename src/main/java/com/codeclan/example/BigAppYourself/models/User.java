@@ -1,6 +1,9 @@
 package com.codeclan.example.BigAppYourself.models;
 
 import com.codeclan.example.BigAppYourself.payloads.Email;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -132,4 +135,11 @@ public class User {
         complimentEmail.setTextBody("Hi " + this.getFirstName() + ", " + this.getCompliment());
         return complimentEmail;
     }
+
+    public Message generateComplimentMessage(){
+        PhoneNumber phoneNumberTo = new PhoneNumber(this.getPhone());
+        PhoneNumber phoneNumberFrom = new PhoneNumber("+441253530348");
+        Message complimentSMS = Message.creator(phoneNumberTo, phoneNumberFrom, this.getCompliment()).create();
+        return complimentSMS;
+        }
 }

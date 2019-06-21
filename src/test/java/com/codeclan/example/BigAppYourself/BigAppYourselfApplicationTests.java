@@ -1,6 +1,5 @@
 package com.codeclan.example.BigAppYourself;
 
-import com.codeclan.example.BigAppYourself.Email.EmailService;
 import com.codeclan.example.BigAppYourself.Email.SendGridEmailService;
 import com.codeclan.example.BigAppYourself.models.Keyword;
 import com.codeclan.example.BigAppYourself.models.User;
@@ -91,12 +90,12 @@ public class BigAppYourselfApplicationTests {
 	public void canSendEmail(){
 
 		Email email = new Email();
-		email.setRecipient("hugh.jarvis@blueyonder.co.uk");
-		email.setRecipientFirstName("Hugh");
-		email.setRecipientLastName("Jarvis");
+		email.setRecipient("ds@4pq.co.uk");
+		email.setRecipientFirstName("Darren");
+		email.setRecipientLastName("Shankland");
 		email.setReplyTo("bigappyourself@gmail.com");
-		email.setSubject("Thanks for signing up");
-		email.setHtmlBody("<h1> Welcome</h1>");
+		email.setSubject("Fresh compliment for Darren");
+		email.setHtmlBody("<h1> Your start-up is valued at £4billion</h1>");
 		sendGridEmailService.send(email);
 	}
 
