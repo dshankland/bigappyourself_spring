@@ -104,6 +104,11 @@ public class BigAppYourselfApplicationTests {
 	public void canCreateComplimentEmail(){
 		assertEquals("Hugh", user2.generateComplimentEmail().getRecipientFirstName());
 	}
+
+	@Test
+	public void canEmailComplimentToUser(){
+		sendGridEmailService.send(user2.generateComplimentEmail());
+	}
 }
 
 
