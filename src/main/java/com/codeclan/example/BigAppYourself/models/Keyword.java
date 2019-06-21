@@ -1,55 +1,36 @@
 package com.codeclan.example.BigAppYourself.models;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.sun.corba.se.impl.naming.cosnaming.InternalBindingKey;
 
-public class Keyword {
+import java.util.Random;
 
-    private Long id;
-    private String name;
-    private String textfrag;
-    private List<Superlative> superlatives;
+public enum Keyword {
 
-    public Keyword(String name, String textfrag) {
-        this.name = name;
-        this.textfrag = textfrag;
-        this.superlatives = new ArrayList<>();
+    GENERAL(""),
+    BEARD("is"),
+    HAIR("is"),
+    FACE("is"),
+    BRAINS("are"),
+    STARTUP("is"),
+    EYES("are"),
+    CHARM("is"),
+    KINDNESS("is"),
+    HUMANITY("is"),
+    BIKE("is"),
+    KNOWLEDGE("is"),
+    FITNESS("is"),
+    CODING("is"),
+    COOKING("is"),
+    DATABASE("is");
+
+    private final String keywordTextFrag;
+
+    Keyword(String keywordTextFrag){
+        this.keywordTextFrag = keywordTextFrag;
     }
 
-    public Keyword() {
+    public String getkeywordTextFragFromEnum(){
+        return this.keywordTextFrag;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTextfrag() {
-        return textfrag;
-    }
-
-    public void setTextfrag(String textfrag) {
-        this.textfrag = textfrag;
-    }
-
-    public List<Superlative> getSuperlatives() {
-        return superlatives;
-    }
-
-    public void setSuperlatives(List<Superlative> superlatives) {
-        this.superlatives = superlatives;
-    }
 }
-
-

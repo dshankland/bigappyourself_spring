@@ -14,18 +14,19 @@ public class User {
     private String twitter;
     private List<Keyword> preferences;
     private String compliment;
+    private String password;
 
-    public User(String firstName, String lastName, LocalDate birthday, String phone, String email, String twitter) {
+    public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthday = birthday;
-        this.phone = phone;
+        this.birthday = null;
+        this.phone = null;
         this.email = email;
-        this.twitter = twitter;
+        this.twitter = null;
         this.preferences = new ArrayList<>();
-        Keyword generalKeyword = new Keyword("general", "");
-        this.preferences.add(generalKeyword);
+        this.preferences.add(Keyword.GENERAL);
         this.compliment = "";
+        this.password = password;
     }
 
     public User() {
@@ -91,8 +92,8 @@ public class User {
         return preferences;
     }
 
-    public void setPreferences(List<Keyword> prefereences) {
-        this.preferences = prefereences;
+    public void setPreferences(List<Keyword> preferences) {
+        this.preferences = preferences;
     }
 
     public void addPreference(Keyword preference) {
@@ -107,13 +108,21 @@ public class User {
         this.compliment = compliment;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public void generateCompliment() {
         Random random=new Random();
         int randomNumber=random.nextInt(this.preferences.size());
         Keyword randomKeyword = this.preferences.get(randomNumber);
         Superlative superlative = Superlative.getRandom();
-        String complimentStart = "Your " + randomKeyword.getName() + " " + randomKeyword.getTextfrag() + " ";
-        if (randomKeyword.getName().equals("general")) {
+        String complimentStart = "Your " + randomKeyword.name().toLowerCase() + " " + randomKeyword.getkeywordTextFragFromEnum() + " ";
+        if (randomKeyword == Keyword.GENERAL) {
             complimentStart = "You are ";
         }
         String compliment = complimentStart + superlative.getSuperlativeValueFromEnum();
