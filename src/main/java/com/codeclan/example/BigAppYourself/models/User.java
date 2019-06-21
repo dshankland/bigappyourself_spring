@@ -1,5 +1,7 @@
 package com.codeclan.example.BigAppYourself.models;
 
+import com.codeclan.example.BigAppYourself.payloads.Email;
+
 import java.time.LocalDate;
 import java.util.*;
 
@@ -118,5 +120,16 @@ public class User {
         }
         String compliment = complimentStart + superlative.getSuperlativeValueFromEnum();
         this.setCompliment(compliment);
+    }
+
+    public Email generateComplimentEmail(){
+        Email complimentEmail = new Email();
+        complimentEmail.setRecipient(this.getEmail());
+        complimentEmail.setRecipientFirstName(this.getFirstName());
+        complimentEmail.setRecipientLastName(this.getLastName());
+        complimentEmail.setReplyTo("bigappyourself@gmail.com");
+        complimentEmail.setSubject("Fresh compliment for " + this.getFirstName());
+        complimentEmail.setTextBody("Hi " + this.getFirstName() + ", " + this.getCompliment());
+        return complimentEmail;
     }
 }
