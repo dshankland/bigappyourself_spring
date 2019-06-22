@@ -15,8 +15,8 @@ public enum Superlative {
     AWESOME("awesome!"),
 //    SUCHANICEPERSON("such a nice person!"),
     BEESKNEES("the bees knees!"),
-    GREAT("great"),
-    THEBUSINESS("the business");
+    GREAT("great!"),
+    THEBUSINESS("the business!");
 
     private final String superlativeValue;
 
