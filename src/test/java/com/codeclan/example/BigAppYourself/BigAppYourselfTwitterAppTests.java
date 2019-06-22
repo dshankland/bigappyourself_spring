@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BigAppYourselfApplicationTests {
+public class BigAppYourselfTwitterAppTests {
 
 	private LocalDate user1Birthday;
 	private LocalDate user2Birthday;
