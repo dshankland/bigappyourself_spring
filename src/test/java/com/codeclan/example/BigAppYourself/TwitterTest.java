@@ -17,10 +17,14 @@ public class TwitterTest {
     UserRepository userRepository;
 
     private User user;
+    private User user2;
+    private User user3;
 
     @Before
     public void setUp() throws Exception {
         user = new User("John", "Moir", "john@4bigappyourself.com", "password" );
+        user2 = new User("Darren", "Shankland", "darren@bigappyourself.com", "password" );
+        user3 = new User("Hugh", "Jarvis","hugh@bigappyourself.com", "password" );
     }
 
 //    String tweet = "Your git merge is amazing!";
@@ -44,5 +48,13 @@ public class TwitterTest {
         TwitterApp.createTweet(randomComp);
     }
 
-
+    @Test
+    public void canGenerateComplimentandDM() throws TwitterException{
+        user2.setTwitter("@darrenshankland");
+        user3.setTwitter("@hughdjarvis");
+        user2.generateCompliment();
+        user3.generateCompliment();
+        TwitterApp.sendDirectMessage(user2.getTwitter(), user2.getCompliment());
+        TwitterApp.sendDirectMessage(user3.getTwitter(), user3.getCompliment());
+    }
 }
