@@ -30,4 +30,17 @@ build/
 ### VS Code ###
 .vscode/
 
+
+
+
+### Email stuff ###
+SendGridKey.txt
+SendGrid.env
+
+### Twilio API key stuff ###
+TwilioKey.txt
+Twilio.env
+
+
+
 /src/main/resources/twitter4j.properties
