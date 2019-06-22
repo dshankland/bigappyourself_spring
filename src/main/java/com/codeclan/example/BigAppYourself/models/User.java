@@ -1,36 +1,71 @@
 package com.codeclan.example.BigAppYourself.models;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.*;
 import com.codeclan.example.BigAppYourself.payloads.Email;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
-
 import java.time.LocalDate;
 import java.util.*;
 
+@Entity
+@Table(name = "users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column
     private LocalDate birthday;
+
+    @Column
     private String phone;
+
+    @Column
     private String email;
+
+    @Column
     private String twitter;
+
+
+
+//    @ElementCollection(targetClass = Skill.class)
+//    @CollectionTable(name = "person_skill", joinColumns = @JoinColumn(name = "person_id"))
+//    @Enumerated(EnumType.STRING)
+//    @Column(name = "skill_id")
+
+
+    @ElementCollection(targetClass = Keyword.class)
+    @CollectionTable(name = "user_keywords", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
+    @Column(name = "keyword_id")
     private List<Keyword> preferences;
+
+    @Column
     private String compliment;
 
-    public User(String firstName, String lastName, LocalDate birthday, String phone, String email, String twitter) {
+    @Column
+    @JsonIgnore
+    private String password;
+
+    public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthday = birthday;
-        this.phone = phone;
+        this.birthday = null;
+        this.phone = null;
         this.email = email;
-        this.twitter = twitter;
+        this.twitter = null;
         this.preferences = new ArrayList<>();
-        Keyword generalKeyword = new Keyword("general", "");
-        this.preferences.add(generalKeyword);
+        this.preferences.add(Keyword.GENERAL);
         this.compliment = "";
+        this.password = password;
     }
 
     public User() {
@@ -96,8 +131,8 @@ public class User {
         return preferences;
     }
 
-    public void setPreferences(List<Keyword> prefereences) {
-        this.preferences = prefereences;
+    public void setPreferences(List<Keyword> preferences) {
+        this.preferences = preferences;
     }
 
     public void addPreference(Keyword preference) {
@@ -112,13 +147,21 @@ public class User {
         this.compliment = compliment;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public void generateCompliment() {
         Random random=new Random();
         int randomNumber=random.nextInt(this.preferences.size());
         Keyword randomKeyword = this.preferences.get(randomNumber);
         Superlative superlative = Superlative.getRandom();
-        String complimentStart = "Your " + randomKeyword.getName() + " " + randomKeyword.getTextfrag() + " ";
-        if (randomKeyword.getName().equals("general")) {
+        String complimentStart = "Your " + randomKeyword.name().toLowerCase() + " " + randomKeyword.getkeywordTextFragFromEnum() + " ";
+        if (randomKeyword == Keyword.GENERAL) {
             complimentStart = "You are ";
         }
         String compliment = complimentStart + superlative.getSuperlativeValueFromEnum();

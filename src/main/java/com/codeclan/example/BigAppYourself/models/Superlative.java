@@ -13,8 +13,10 @@ public enum Superlative {
     GLOSSY("glossy!"),
     NICESHAPE("a nice shape!"),
     AWESOME("awesome!"),
-    SUCHANICEPERSON("such a nice person!"),
-    BEESKNEES("the bees knees!");
+//    SUCHANICEPERSON("such a nice person!"),
+    BEESKNEES("the bees knees!"),
+    GREAT("great"),
+    THEBUSINESS("the business");
 
     private final String superlativeValue;
 
