@@ -29,3 +29,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Email stuff ###
+SendGridKey.txt
+SendGrid.env
+
+### Twilio API key stuff ###
+TwilioKey.txt
+Twilio.env
