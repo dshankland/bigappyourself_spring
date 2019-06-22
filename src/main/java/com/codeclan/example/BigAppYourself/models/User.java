@@ -1,8 +1,10 @@
 package com.codeclan.example.BigAppYourself.models;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
+import com.codeclan.example.BigAppYourself.payloads.Email;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -165,4 +167,22 @@ public class User {
         String compliment = complimentStart + superlative.getSuperlativeValueFromEnum();
         this.setCompliment(compliment);
     }
+
+    public Email generateComplimentEmail(){
+        Email complimentEmail = new Email();
+        complimentEmail.setRecipient(this.getEmail());
+        complimentEmail.setRecipientFirstName(this.getFirstName());
+        complimentEmail.setRecipientLastName(this.getLastName());
+        complimentEmail.setReplyTo("bigappyourself@gmail.com");
+        complimentEmail.setSubject("Fresh compliment for " + this.getFirstName());
+        complimentEmail.setTextBody("Hi " + this.getFirstName() + ", " + this.getCompliment());
+        return complimentEmail;
+    }
+
+    public Message generateComplimentMessage(){
+        PhoneNumber phoneNumberTo = new PhoneNumber(this.getPhone());
+        PhoneNumber phoneNumberFrom = new PhoneNumber("+441253530348");
+        Message complimentSMS = Message.creator(phoneNumberTo, phoneNumberFrom, this.getCompliment()).create();
+        return complimentSMS;
+        }
 }
