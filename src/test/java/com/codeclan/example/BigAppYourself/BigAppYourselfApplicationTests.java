@@ -40,7 +40,7 @@ public class BigAppYourselfApplicationTests {
 	@Before
 	public void setUp() throws Exception {
 		user1Birthday = LocalDate.of(1972, 12, 25);
-		user2Birthday = LocalDate.of(1975, 7, 26);
+		user2Birthday = LocalDate.of(1975, 4, 28);
 		user3Birthday = LocalDate.of(1982, 12, 25);
 
 		keyword1 = new Keyword("beard", "is");
@@ -49,8 +49,8 @@ public class BigAppYourselfApplicationTests {
 		keyword4 = new Keyword("brains", "are");
 
 		user1 = new User("Darren", "Shankland", user1Birthday, "07999999999", "darren@bigappyourself.com", "dshankland" );
-		user2 = new User("Hugh", "Jarvis", user2Birthday, "07777777777", "hugh.jarvis@blueyonder.co.uk", "hughjarvis" );
-		user3 = new User("John", "Moir", user3Birthday, "07666666666", "john@4bigappyourself.com", "johnmoir" );
+		user2 = new User("Hugh", "Jarvis", user2Birthday, "07777777777", "hugh@bigappyourself.co.uk", "hughjarvis" );
+		user3 = new User("John", "Moir", user3Birthday, "07666666666", "john@bigappyourself.com", "johnmoir" );
 
 		user1.addPreference(keyword1);
 		user1.addPreference(keyword2);
@@ -90,9 +90,9 @@ public class BigAppYourselfApplicationTests {
 	public void canSendEmail(){
 
 		Email email = new Email();
-		email.setRecipient("ds@4pq.co.uk");
-		email.setRecipientFirstName("Darren");
-		email.setRecipientLastName("Shankland");
+		email.setRecipient("hugh.jarvis@blueyonder.co.uk");
+		email.setRecipientFirstName("Hugh");
+		email.setRecipientLastName("Jarvis");
 		email.setReplyTo("bigappyourself@gmail.com");
 		email.setSubject("Fresh compliment for Darren");
 		email.setHtmlBody("<h1> Your start-up is valued at £4billion</h1>");
