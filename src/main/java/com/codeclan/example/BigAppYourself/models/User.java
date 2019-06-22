@@ -1,19 +1,56 @@
 package com.codeclan.example.BigAppYourself.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.*;
 
+@Entity
+@Table(name = "users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column
     private LocalDate birthday;
+
+    @Column
     private String phone;
+
+    @Column
     private String email;
+
+    @Column
     private String twitter;
+
+
+
+//    @ElementCollection(targetClass = Skill.class)
+//    @CollectionTable(name = "person_skill", joinColumns = @JoinColumn(name = "person_id"))
+//    @Enumerated(EnumType.STRING)
+//    @Column(name = "skill_id")
+
+
+    @ElementCollection(targetClass = Keyword.class)
+    @CollectionTable(name = "user_keywords", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
+    @Column(name = "keyword_id")
     private List<Keyword> preferences;
+
+    @Column
     private String compliment;
+
+    @Column
+    @JsonIgnore
     private String password;
 
     public User(String firstName, String lastName, String email, String password) {
