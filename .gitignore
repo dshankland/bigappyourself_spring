@@ -29,3 +29,13 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+
+
+### Twilio and SendGrid stuff ###
+*.env
+
+
+
+/src/main/resources/twitter4j.properties
