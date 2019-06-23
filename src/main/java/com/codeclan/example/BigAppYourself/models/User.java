@@ -1,4 +1,6 @@
 package com.codeclan.example.BigAppYourself.models;
+import com.codeclan.example.BigAppYourself.Email.SendGridEmailService;
+import com.codeclan.example.BigAppYourself.SMS.SmsSender;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import com.codeclan.example.BigAppYourself.payloads.Email;
@@ -179,7 +181,13 @@ public class User {
         return complimentEmail;
     }
 
+    public void sendComplimentEmail(){
+        SendGridEmailService sendGridEmailService = new SendGridEmailService();
+        sendGridEmailService.send(this.generateComplimentEmail());
+    }
+
     public Message generateComplimentMessage(){
+        SmsSender smsSender = new SmsSender();
         PhoneNumber phoneNumberTo = new PhoneNumber(this.getPhone());
         PhoneNumber phoneNumberFrom = new PhoneNumber("+441253530348");
         Message complimentSMS = Message.creator(phoneNumberTo, phoneNumberFrom, this.getCompliment()).create();
