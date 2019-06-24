@@ -165,11 +165,12 @@ public class User {
         int randomNumber=random.nextInt(this.preferences.size());
         Keyword randomKeyword = this.preferences.get(randomNumber);
         Superlative superlative = Superlative.getRandom();
+        Modifier modifier = Modifier.getRandom();
         String complimentStart = "Your " + randomKeyword.name().toLowerCase() + " " + randomKeyword.getkeywordTextFragFromEnum() + " ";
         if (randomKeyword == Keyword.GENERAL) {
             complimentStart = "You are ";
         }
-        String compliment = complimentStart + superlative.getSuperlativeValueFromEnum();
+        String compliment = complimentStart + modifier.getModifierValueFromEnum() + " " + superlative.getSuperlativeValueFromEnum();
         this.setCompliment(compliment);
     }
 

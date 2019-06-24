@@ -10,14 +10,14 @@ public enum Superlative {
     WONDERFUL("wonderful!"),
     DELICIOUS("delicious!"),
     JOLLYGOOD("jolly good!"),
-    GLOSSY("so glossy!"),
+    GLOSSY("glossy!"),
     NICESHAPE("a nice shape!"),
     AWESOME("awesome!"),
     AWEINSPIRONG("awe-inspiring!"),
 //    SUCHANICEPERSON("such a nice person!"),
     BEESKNEES("the bees knees!"),
     GREAT("great!"),
-    SOCOOL("really cool!"),
+    SOCOOL("cool!"),
     SENSATIONAL("sensational!"),
     TREMENDOUS("tremendous!"),
     BREATHTAKING("breathtaking!"),
@@ -25,8 +25,8 @@ public enum Superlative {
     BEYONDCOMPARE("beyond compare!"),
     SECONDTONONE("second to none!"),
     MAKINGMEWEEP("making me weep with joy!"),
-    THEWORLDSGREATEST("the world's greatest"),
-    BESTEVER("the best ever"),
+    THEWORLDSGREATEST("the world's greatest!"),
+    BESTEVER("the best ever!"),
     THEBUSINESS("the business!");
 
 
