@@ -12,6 +12,9 @@ public enum Modifier {
     BLANK2(""),
     BLANK3(""),
     SO("so"),
+    ULTRA("ultra"),
+    SUPER("super"),
+    UBER("uber"),
     BLANK4("");
 
     private final String modifierValue;

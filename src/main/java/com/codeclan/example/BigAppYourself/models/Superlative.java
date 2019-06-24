@@ -25,8 +25,8 @@ public enum Superlative {
     BEYONDCOMPARE("beyond compare!"),
     SECONDTONONE("second to none!"),
     MAKINGMEWEEP("making me weep with joy!"),
-    THEWORLDSGREATEST("the world's greatest"),
-    BESTEVER("the best ever"),
+    THEWORLDSGREATEST("the world's greatest!"),
+    BESTEVER("the best ever!"),
     THEBUSINESS("the business!");
 
 
