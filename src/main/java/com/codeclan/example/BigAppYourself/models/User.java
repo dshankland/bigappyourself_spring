@@ -64,7 +64,7 @@ public class User {
         this.twitter = null;
         this.preferences = new ArrayList<>();
         this.preferences.add(Keyword.GENERAL);
-        this.compliment = "";
+        this.compliment = "You are awesome! Thanks for registering!";
         this.password = password;
     }
 
