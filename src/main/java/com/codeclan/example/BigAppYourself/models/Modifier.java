@@ -16,6 +16,11 @@ public enum Modifier {
     SOSO("so, so"),
     SOSOSO("so, so, so"),
     SUPREMELY("supremely"),
+    SUPERBLY("superbly"),
+    INDISPUTABLY("indisputably"),
+    UNDOUBTEDLY("undoubtedly"),
+    FANTASTICALLY("fantastically"),
+    DEAD("dead"),
     MEGA("mega");
 
     private final String modifierValue;

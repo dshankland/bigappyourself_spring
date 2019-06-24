@@ -27,6 +27,8 @@ public enum Superlative {
     MAKINGMEWEEP("making me weep with joy!"),
     THEWORLDSGREATEST("the world's greatest!"),
     BESTEVER("the best ever!"),
+    BESTYET("the best yet"!),
+    NICE("nice"),
     THEBUSINESS("the business!");
 
 
