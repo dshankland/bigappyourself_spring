@@ -3,6 +3,8 @@ package com.codeclan.example.BigAppYourself.twitter;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import twitter4j.DirectMessage;
 import twitter4j.Query;
 import twitter4j.QueryResult;
@@ -17,6 +19,8 @@ import twitter4j.TwitterStream;
 import twitter4j.TwitterStreamFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
+@Service
+@Component
 public class TwitterApp {
 
 	public static Twitter getTwitterinstance() {
@@ -28,7 +32,7 @@ public class TwitterApp {
 	
 	public static String createTweet(String tweet) throws TwitterException {
 		Twitter twitter = getTwitterinstance();
-		Status status = twitter.updateStatus("");
+		Status status = twitter.updateStatus(tweet);
 	        return status.getText();
 	}
 	

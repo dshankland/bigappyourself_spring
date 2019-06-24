@@ -19,21 +19,26 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) {
 
-        User darren = new User("Darren", "Shankland", "darren@bigappyourself.com", "password" );
+        User darren = new User("Darren", "Shankland", "ds@4pq.co.uk", "password" );
+        darren.setTwitter("@darrenshankland");
+        darren.setPhone("+447967219233");
         darren.addPreference(Keyword.CODING);
 		darren.addPreference(Keyword.FACE);
 		darren.addPreference(Keyword.DATABASE);
 		darren.generateCompliment();
         userRepository.save(darren);
 
-        User hugh = new User("Hugh", "Jarvis","hugh@bigappyourself.com", "password" );
-		hugh.addPreference(Keyword.HAIR);
+        User hugh = new User("Hugh", "Jarvis","hugh.jarvis@blueyonder.co.uk", "password" );
+		hugh.setTwitter("@hughdjarvis");
+		hugh.setPhone("+447813684853");
+        hugh.addPreference(Keyword.HAIR);
 		hugh.addPreference(Keyword.CHARM);
 		hugh.addPreference(Keyword.HUMANITY);
 		hugh.generateCompliment();
         userRepository.save(hugh);
 
-        User john = new User("John", "Moir", "john@4bigappyourself.com", "password" );
+        User john = new User("John", "Moir", "jmmoir@outlook.com", "password" );
+        john.setPhone("+447894114326");
 		john.addPreference(Keyword.KNOWLEDGE);
 		john.addPreference(Keyword.STARTUP);
 		john.addPreference(Keyword.BEARD);

@@ -33,4 +33,9 @@ public enum Keyword {
         return this.keywordTextFrag;
     }
 
+    public static Keyword getRandom() {
+        Random random = new Random();
+        return values()[random.nextInt(values().length)];
+    }
+
 }
