@@ -7,15 +7,16 @@ public enum Modifier {
     COMPLETELY("completely"),
     UTTERLY("utterly"),
     PURE("pure"),
-    BLANK(""),
     REALLY("really"),
-    BLANK2(""),
-    BLANK3(""),
     SO("so"),
     ULTRA("ultra"),
     SUPER("super"),
+    ABSOLUTELY("absolutely"),
     UBER("uber"),
-    BLANK4("");
+    SOSO("so, so"),
+    SOSOSO("so, so, so"),
+    SUPREMELY("supremely"),
+    MEGA("mega");
 
     private final String modifierValue;
 
