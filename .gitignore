@@ -39,7 +39,7 @@ SendGrid.env
 
 ### Twilio API key stuff ###
 TwilioKey.txt
-Twilio.env
+*.env
 
 
 
