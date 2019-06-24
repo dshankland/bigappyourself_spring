@@ -103,11 +103,11 @@ user2.addPreference(Keyword.CHARM);
 	public void canSendEmail(){
 
 		Email email = new Email();
-		email.setRecipient("hugh.jarvis@blueyonder.co.uk");
+		email.setRecipient(System.getenv("HUGH_EMAIL_ADDRESS"));
 		email.setRecipientFirstName("Hugh");
 		email.setRecipientLastName("Jarvis");
 		email.setReplyTo("bigappyourself@gmail.com");
-		email.setSubject("Fresh compliment for Darren");
+		email.setSubject("Fresh compliment for ");
 		email.setHtmlBody("<h1> Your start-up is valued at £4billion</h1>");
 		sendGridEmailService.send(email);
 	}
@@ -119,7 +119,8 @@ user2.addPreference(Keyword.CHARM);
 
 	@Test
 	public void canEmailComplimentToUser(){
-		sendGridEmailService.send(user2.generateComplimentEmail());
+		user2.setCompliment("You are a wonderful human being");
+		user2.sendComplimentEmail();
 	}
 
 	@Test

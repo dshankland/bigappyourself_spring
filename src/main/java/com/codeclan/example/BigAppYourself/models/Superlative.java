@@ -10,7 +10,7 @@ public enum Superlative {
     WONDERFUL("wonderful!"),
     DELICIOUS("delicious!"),
     JOLLYGOOD("jolly good!"),
-    GLOSSY("glossy!"),
+    GLOSSY("so glossy!"),
     NICESHAPE("a nice shape!"),
     AWESOME("awesome!"),
     AWEINSPIRONG("awe-inspiring!"),
@@ -28,6 +28,7 @@ public enum Superlative {
     THEWORLDSGREATEST("the world's greatest"),
     BESTEVER("the best ever"),
     THEBUSINESS("the business!");
+
 
     private final String superlativeValue;
 

@@ -1,10 +1,14 @@
 package com.codeclan.example.BigAppYourself.models;
+import com.codeclan.example.BigAppYourself.Email.SendGridEmailService;
+import com.codeclan.example.BigAppYourself.SMS.SmsSender;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import com.codeclan.example.BigAppYourself.payloads.Email;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.time.LocalDate;
 import java.util.*;
 
@@ -34,7 +38,8 @@ public class User {
     @Column
     private String twitter;
 
-
+    @Autowired
+    SmsSender smsSender;
 
 //    @ElementCollection(targetClass = Skill.class)
 //    @CollectionTable(name = "person_skill", joinColumns = @JoinColumn(name = "person_id"))
@@ -177,6 +182,11 @@ public class User {
         complimentEmail.setSubject("Fresh compliment for " + this.getFirstName());
         complimentEmail.setTextBody("Hi " + this.getFirstName() + ", " + this.getCompliment());
         return complimentEmail;
+    }
+
+    public void sendComplimentEmail(){
+        SendGridEmailService sendGridEmailService = new SendGridEmailService();
+        sendGridEmailService.send(this.generateComplimentEmail());
     }
 
     public Message generateComplimentMessage(){
