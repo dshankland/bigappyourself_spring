@@ -7,6 +7,8 @@ import com.codeclan.example.BigAppYourself.payloads.Email;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.time.LocalDate;
 import java.util.*;
 
@@ -36,7 +38,8 @@ public class User {
     @Column
     private String twitter;
 
-
+    @Autowired
+    SmsSender smsSender;
 
 //    @ElementCollection(targetClass = Skill.class)
 //    @CollectionTable(name = "person_skill", joinColumns = @JoinColumn(name = "person_id"))
@@ -187,7 +190,6 @@ public class User {
     }
 
     public Message generateComplimentMessage(){
-        SmsSender smsSender = new SmsSender();
         PhoneNumber phoneNumberTo = new PhoneNumber(this.getPhone());
         PhoneNumber phoneNumberFrom = new PhoneNumber("+441253530348");
         Message complimentSMS = Message.creator(phoneNumberTo, phoneNumberFrom, this.getCompliment()).create();
