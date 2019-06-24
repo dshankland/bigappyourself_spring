@@ -28,7 +28,7 @@ public class TwitterApp {
 	
 	public static String createTweet(String tweet) throws TwitterException {
 		Twitter twitter = getTwitterinstance();
-		Status status = twitter.updateStatus("");
+		Status status = twitter.updateStatus(tweet);
 	        return status.getText();
 	}
 	

@@ -5,6 +5,7 @@ import com.codeclan.example.BigAppYourself.models.Keyword;
 import com.codeclan.example.BigAppYourself.models.User;
 import com.codeclan.example.BigAppYourself.repositories.UserRepository;
 import com.codeclan.example.BigAppYourself.payloads.Email;
+import com.codeclan.example.BigAppYourself.twitter.TwitterApp;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,6 +34,7 @@ public class BigAppYourselfApplicationTests {
 	private User darren;
 	private User user2;
 	private User user3;
+	private TwitterApp twitterApp;
 
 
 
