@@ -3,13 +3,10 @@ package com.codeclan.example.BigAppYourself.controllers;
 import com.codeclan.example.BigAppYourself.models.User;
 import com.codeclan.example.BigAppYourself.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 
 @RestController
@@ -19,6 +16,13 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    @Configuration
+    public class RepositoryConfig extends RepositoryRestConfigurerAdapter {
+        @Override
+        public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
+            config.exposeIdsFor(User.class);
+        }
+    }
 
     @GetMapping(value = "/compliment/{id}")
     public User updateUserCompliment(@PathVariable(value = "id") Long id) {
