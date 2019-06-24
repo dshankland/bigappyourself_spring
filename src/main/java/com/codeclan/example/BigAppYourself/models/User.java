@@ -52,7 +52,7 @@ public class User {
     private String compliment;
 
     @Column
-    @JsonIgnore
+//    @JsonIgnore
     private String password;
 
     public User(String firstName, String lastName, String email, String password) {
