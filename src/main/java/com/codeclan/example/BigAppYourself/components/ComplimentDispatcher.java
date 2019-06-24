@@ -52,7 +52,7 @@ public class ComplimentDispatcher {
     }
 
     @Scheduled(cron = "0 0 7 * * ?")
-    @Scheduled(cron = "0 0 12 * * ?")
+    @Scheduled(cron = "0 53 14 * * ?")
     @Scheduled(cron = "0 0 17 * * ?")
     @Scheduled(cron = "0 0 22 * * ?")
     public void sendCompliments() throws TwitterException {
@@ -65,6 +65,10 @@ public class ComplimentDispatcher {
             if (user.getTwitter() != null){
                 user.generateCompliment();
                 twitterApp.sendDirectMessage(user.getTwitter(), user.getCompliment());
+            }
+            if (user.getPhone() != null){
+                user.generateCompliment();
+                smsSender.sendSMS(user);
             }
         }
     }

@@ -12,14 +12,14 @@ import org.springframework.stereotype.Service;
 public class SmsSender {
 
     public String ACCOUNT_SID = "AC934c54990a52597e0980a242b7bcdd4a";
-    public String AUTH_TOKEN = "y9dac0ab9c1a4b05ccffa22b4fd5812fd";
+    public String AUTH_TOKEN = "9dac0ab9c1a4b05ccffa22b4fd5812fd";
 
     public void sendSMS(User user) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
-        Message message = Message.creator(new PhoneNumber("+441253530348"),
-                new PhoneNumber(user.getPhone()),
-                user.getCompliment())
+        Message message = Message.creator(new PhoneNumber(user.getPhone()),
+                new PhoneNumber("+441253530348"),
+                "Hi " + user.getFirstName() + ", " + user.getCompliment())
                 .create();
 
        // System.out.println(message.getSid());
