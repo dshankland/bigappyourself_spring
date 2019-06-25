@@ -3,6 +3,7 @@ package com.codeclan.example.BigAppYourself.components;
 import com.codeclan.example.BigAppYourself.Email.SendGridEmailService;
 import com.codeclan.example.BigAppYourself.SMS.SmsSender;
 import com.codeclan.example.BigAppYourself.models.Keyword;
+import com.codeclan.example.BigAppYourself.models.Modifier;
 import com.codeclan.example.BigAppYourself.models.Superlative;
 import com.codeclan.example.BigAppYourself.models.User;
 import com.codeclan.example.BigAppYourself.repositories.UserRepository;
@@ -84,14 +85,14 @@ public class ComplimentDispatcher {
     }
 
     public String generateCompliment(){
-
+        Modifier randomModifier = Modifier.getRandom();
         Keyword randomKeyword = Keyword.getRandom();
         Superlative superlative = Superlative.getRandom();
         String complimentStart = "Your " + randomKeyword.name().toLowerCase() + " " + randomKeyword.getkeywordTextFragFromEnum() + " ";
         if (randomKeyword == Keyword.GENERAL) {
             complimentStart = "You are ";
         }
-        String compliment = complimentStart + superlative.getSuperlativeValueFromEnum();
+        String compliment = complimentStart + randomModifier.getModifierValueFromEnum() + " " + superlative.getSuperlativeValueFromEnum();
         return compliment;
     }
 

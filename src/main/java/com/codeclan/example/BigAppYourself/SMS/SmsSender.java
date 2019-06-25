@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 @Component
 @Service
 public class SmsSender {
+
     public String ACCOUNT_SID = "*****************";
     public String AUTH_TOKEN = "******************";
+
     public void sendSMS(User user) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         Message message = Message.creator(new PhoneNumber(user.getPhone()),
