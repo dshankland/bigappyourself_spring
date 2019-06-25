@@ -140,6 +140,11 @@ user2.addPreference(Keyword.CHARM);
 		user2.generateCompliment();
 		smsSender.sendSMS(user2);
 	}
+
+	@Test
+	public void canTagAndTweet() throws TwitterException {
+		complimentDispatcher.tagAFriendAndTweet("@allymcgilloway");
+	}
 }
 
 

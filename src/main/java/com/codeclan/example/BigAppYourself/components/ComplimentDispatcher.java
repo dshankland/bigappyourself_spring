@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
+import javax.swing.table.TableRowSorter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -92,5 +93,10 @@ public class ComplimentDispatcher {
         }
         String compliment = complimentStart + superlative.getSuperlativeValueFromEnum();
         return compliment;
+    }
+
+    public void tagAFriendAndTweet(String twitterHandle) throws TwitterException {
+        String compliment = generateCompliment();
+        TwitterApp.createTweet(twitterHandle +" "+ compliment);
     }
 }
