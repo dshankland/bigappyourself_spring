@@ -17,7 +17,7 @@ public enum Superlative {
 //    SUCHANICEPERSON("such a nice person!"),
     BEESKNEES("the bees knees!"),
     GREAT("great!"),
-    SOCOOL("cool!"),
+    COOL("cool!"),
     SENSATIONAL("sensational!"),
     TREMENDOUS("tremendous!"),
     BREATHTAKING("breathtaking!"),
@@ -28,6 +28,7 @@ public enum Superlative {
     THEWORLDSGREATEST("the world's greatest!"),
     BESTEVER("the best ever!"),
     BESTYET("the best yet!"),
+    SOMETHINGELSE("something else"),
     NICE("nice"),
     THEBUSINESS("the business!");
 
