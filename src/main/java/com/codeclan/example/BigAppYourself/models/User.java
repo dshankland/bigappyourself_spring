@@ -38,8 +38,6 @@ public class User {
     @Column
     private String twitter;
 
-//    @Autowired
-//    SmsSender smsSender;
 
 //    @ElementCollection(targetClass = Skill.class)
 //    @CollectionTable(name = "person_skill", joinColumns = @JoinColumn(name = "person_id"))
@@ -196,4 +194,5 @@ public class User {
         Message complimentSMS = Message.creator(phoneNumberTo, phoneNumberFrom, this.getCompliment()).create();
         return complimentSMS;
         }
+
 }
