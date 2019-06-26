@@ -80,7 +80,7 @@ public class ComplimentDispatcher {
     @Scheduled(cron = "0 0 17 * * ?")
     @Scheduled(cron = "0 0 22 * * ?")
     public void broadcastTweet() throws TwitterException {
-        TwitterApp.createTweet(generateCompliment());
+        TwitterApp.createTweet(generateCompliment()+" #NiceApp #BigAppYourself #Compliments #Praise");
 
     }
 

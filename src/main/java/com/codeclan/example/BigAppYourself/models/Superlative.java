@@ -13,7 +13,7 @@ public enum Superlative {
     GLOSSY("glossy!"),
     NICESHAPE("a nice shape!"),
     AWESOME("awesome!"),
-    AWEINSPIRONG("awe-inspiring!"),
+    AWEINSPIRING("awe-inspiring!"),
 //    SUCHANICEPERSON("such a nice person!"),
     BEESKNEES("the bees knees!"),
     GREAT("great!"),

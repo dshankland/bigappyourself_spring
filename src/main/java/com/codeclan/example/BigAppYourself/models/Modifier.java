@@ -6,6 +6,7 @@ public enum Modifier {
     TOTALLY("totally"),
     COMPLETELY("completely"),
     UTTERLY("utterly"),
+    EXTREMELY("extremely"),
     PURE("pure"),
     REALLY("really"),
     SO("so"),
@@ -20,7 +21,6 @@ public enum Modifier {
     INDISPUTABLY("indisputably"),
     UNDOUBTEDLY("undoubtedly"),
     FANTASTICALLY("fantastically"),
-    DEAD("dead"),
     MEGA("mega");
 
     private final String modifierValue;
