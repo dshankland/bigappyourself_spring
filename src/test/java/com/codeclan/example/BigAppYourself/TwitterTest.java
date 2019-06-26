@@ -44,7 +44,7 @@ public class TwitterTest {
     @Test
     public void canGenerateComplimentAndTweet() throws TwitterException{
         user.generateCompliment();
-        String randomComp = "@CodeClanScot " + user.getCompliment();
+        String randomComp = "@darrenshankland " + user.getCompliment();
         TwitterApp.createTweet(randomComp);
     }
 

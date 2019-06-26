@@ -3,6 +3,7 @@ package com.codeclan.example.BigAppYourself.components;
 import com.codeclan.example.BigAppYourself.Email.SendGridEmailService;
 import com.codeclan.example.BigAppYourself.SMS.SmsSender;
 import com.codeclan.example.BigAppYourself.models.Keyword;
+import com.codeclan.example.BigAppYourself.models.Modifier;
 import com.codeclan.example.BigAppYourself.models.Superlative;
 import com.codeclan.example.BigAppYourself.models.User;
 import com.codeclan.example.BigAppYourself.repositories.UserRepository;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
+import javax.swing.table.TableRowSorter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -78,19 +80,24 @@ public class ComplimentDispatcher {
     @Scheduled(cron = "0 0 17 * * ?")
     @Scheduled(cron = "0 0 22 * * ?")
     public void broadcastTweet() throws TwitterException {
-        TwitterApp.createTweet(generateCompliment());
+        TwitterApp.createTweet(generateCompliment()+" #NiceApp #BigAppYourself #Compliments #Praise");
 
     }
 
     public String generateCompliment(){
-
+        Modifier randomModifier = Modifier.getRandom();
         Keyword randomKeyword = Keyword.getRandom();
         Superlative superlative = Superlative.getRandom();
         String complimentStart = "Your " + randomKeyword.name().toLowerCase() + " " + randomKeyword.getkeywordTextFragFromEnum() + " ";
         if (randomKeyword == Keyword.GENERAL) {
             complimentStart = "You are ";
         }
-        String compliment = complimentStart + superlative.getSuperlativeValueFromEnum();
+        String compliment = complimentStart + randomModifier.getModifierValueFromEnum() + " " + superlative.getSuperlativeValueFromEnum();
         return compliment;
+    }
+
+    public void tagAFriendAndTweet(String twitterHandle) throws TwitterException {
+        String compliment = generateCompliment();
+        TwitterApp.createTweet(twitterHandle +" "+ compliment);
     }
 }

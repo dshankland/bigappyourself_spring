@@ -136,9 +136,14 @@ user2.addPreference(Keyword.CHARM);
 
 	@Test
 	public void canSendSMS() {
-		user2.setPhone("+447894114326");
+		user2.setPhone("+447813684853");
 		user2.generateCompliment();
 		smsSender.sendSMS(user2);
+	}
+
+	@Test
+	public void canTagAndTweet() throws TwitterException {
+		complimentDispatcher.tagAFriendAndTweet("@allymcgilloway");
 	}
 }
 

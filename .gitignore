@@ -35,4 +35,5 @@ build/
 
 ### Twilio and SendGrid stuff ###
 *.env
-Twitter4j.txt
+twitter4j.txt
+twitter4j.properties

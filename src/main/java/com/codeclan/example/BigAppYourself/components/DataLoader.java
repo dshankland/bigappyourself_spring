@@ -33,7 +33,7 @@ public class DataLoader implements ApplicationRunner {
 		hugh.setPhone("+447813684853");
         hugh.addPreference(Keyword.HAIR);
 		hugh.addPreference(Keyword.CHARM);
-		hugh.addPreference(Keyword.HUMANITY);
+		hugh.addPreference(Keyword.BIKE);
 		hugh.generateCompliment();
         userRepository.save(hugh);
 
